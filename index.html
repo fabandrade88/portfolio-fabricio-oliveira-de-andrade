@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fabrício Oliveira de Andrade | Portfólio Pessoal</title>
+  <meta name="description" content="Portfólio pessoal e currículo online de Fabrício Oliveira de Andrade">
+
+  <!-- ícone da aba, coloquei um emoji em svg direto aqui pra não ter que criar um arquivo só pra isso -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%91%94</text></svg>">
+
+  <!-- fonte lá do Google Fonts, é só a tipografia, não conta como framework -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- essa div vazia é só um "alvo" pro link #topo. Tentei usar o próprio
+       header antes, mas como ele é fixed o navegador não rolava a página
+       de volta pro topo, então separei -->
+  <div id="topo"></div>
+
+  <!-- cabeçalho fixo, fica visível em qualquer seção que o usuário estiver -->
+  <header class="cabecalho">
+    <div class="container cabecalho-conteudo">
+
+      <a href="#topo" class="logo">Fabrício <span>Andrade</span></a>
+
+      <nav class="menu" id="menu">
+        <ul class="listaMenu">
+          <li><a href="#sobre" class="link-menu">Sobre mim</a></li>
+          <li><a href="#formacao" class="link-menu">Formação</a></li>
+          <li><a href="#portfolio" class="link-menu">Portfólio</a></li>
+          <li><a href="#contato" class="link-menu">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="acoes-header">
+        <!-- troca claro/escuro, lógica tá no script.js -->
+        <button id="botao-tema" class="botao-tema" aria-label="Alternar tema claro ou escuro" title="Alternar tema">🌙</button>
+
+        <!-- esse é o botão hamburguer, só some/aparece no celular (media query no css) -->
+        <button id="botao-menu" class="botao-menu" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container hero-conteudo">
+        <img src="assets/img/foto-perfil.jpg" alt="Foto de Fabrício Oliveira de Andrade" class="foto-perfil">
+        <h1>Fabrício Oliveira de Andrade</h1>
+        <p class="cargo">Business Engagement &amp; Partnership Leader — América Latina</p>
+        <p class="local">📍 Basel, Suíça</p>
+        <a href="#contato" class="botao botao-principal">Entre em contato</a>
+      </div>
+    </section>
+
+    <section id="sobre" class="secao">
+      <div class="container">
+        <h2 class="titulo-secao">Sobre mim</h2>
+
+        <div class="grid-sobre">
+          <div class="texto-sobre">
+            <p>
+              Sou um profissional com mais de 17 anos de experiência em desenvolvimento de negócios,
+              parcerias estratégicas e liderança comercial na América Latina e em mercados industriais
+              globais. Ao longo da minha carreira, já liderei estratégias de crescimento em países como
+              Brasil, México, Colômbia, Chile, Espanha e Portugal, sempre construindo relacionamentos de
+              confiança com executivos e tomadores de decisão.
+            </p>
+            <p>
+              Atualmente moro em Basel, na Suíça, onde trabalho na Endress+Hauser como Product Owner,
+              atuando na estratégia digital e de inteligência artificial da empresa em nível global.
+              Sou brasileiro, falo português nativamente, inglês e espanhol fluentemente, e tenho
+              conhecimento intermediário de alemão.
+            </p>
+            <p>
+              Nas horas livres, gosto de estudar sobre novas tecnologias e inteligência artificial,
+              viajar e conhecer novas culturas, e praticar os idiomas que venho aprendendo.
+            </p>
+          </div>
+
+          <div class="destaques">
+            <h3>Áreas de atuação</h3>
+            <ul class="lista-tags">
+              <li>Desenvolvimento de Negócios</li>
+              <li>Parcerias Estratégicas</li>
+              <li>Liderança Comercial</li>
+              <li>Transformação Digital</li>
+              <li>IIoT / Automação Industrial</li>
+              <li>Inteligência Artificial</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="formacao" class="secao secao-alt">
+      <div class="container">
+        <h2 class="titulo-secao">Formação</h2>
+
+        <div class="bloco">
+          <h3>Formação acadêmica</h3>
+          <ul class="timeline">
+            <li>
+              <span class="ano">2020</span>
+              <div>
+                <strong>MBA em Negócios Digitais</strong>
+                <p>PUCRS</p>
+              </div>
+            </li>
+            <li>
+              <span class="ano">2014</span>
+              <div>
+                <strong>Graduação em Administração</strong>
+                <p>Universidade Anhembi Morumbi</p>
+              </div>
+            </li>
+            <li>
+              <span class="ano">2008</span>
+              <div>
+                <strong>Técnico em Automação Industrial</strong>
+                <p>SENAI</p>
+              </div>
+            </li>
+            <li>
+              <span class="ano">2006</span>
+              <div>
+                <strong>Técnico em Telecomunicações</strong>
+                <p>Colégio Adélia Camargo</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bloco">
+          <h3>Cursos e certificações</h3>
+          <ul class="lista">
+            <li>Sales Negotiation — University of Oxford (2024)</li>
+            <li>Sales Enablement — HubSpot Academy (2022)</li>
+            <li>Advanced Flow Course — Endress+Hauser (curso interno)</li>
+          </ul>
+        </div>
+
+        <!-- fiz as barrinhas de idioma só com uma div com width em % mesmo, nada muito elaborado -->
+        <div class="bloco">
+          <h3>Idiomas</h3>
+          <div class="idioma">
+            <div class="idioma-linha"><span>Português</span><span>Nativo</span></div>
+            <div class="barra"><div class="preenchido" style="width: 100%;"></div></div>
+          </div>
+          <div class="idioma">
+            <div class="idioma-linha"><span>Inglês</span><span>C1</span></div>
+            <div class="barra"><div class="preenchido" style="width: 85%;"></div></div>
+          </div>
+          <div class="idioma">
+            <div class="idioma-linha"><span>Espanhol</span><span>C1</span></div>
+            <div class="barra"><div class="preenchido" style="width: 85%;"></div></div>
+          </div>
+          <div class="idioma">
+            <div class="idioma-linha"><span>Alemão</span><span>B1</span></div>
+            <div class="barra"><div class="preenchido" style="width: 50%;"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="secao">
+      <div class="container">
+        <h2 class="titulo-secao">Portfólio</h2>
+        <p class="intro">
+          Ao longo da minha trajetória profissional venho me aprofundando em tecnologia,
+          automação industrial e transformação digital. Abaixo estão alguns sites e projetos
+          que desenvolvi e mantenho:
+        </p>
+
+        <div class="grid-projetos">
+          <article class="card">
+            <h3>Automação 24/7</h3>
+            <p class="card-url">automacao247.com</p>
+            <p>
+              Site voltado a conteúdos, dicas e soluções sobre automação industrial,
+              instrumentação e tecnologias para o chão de fábrica.
+            </p>
+            <a href="https://automacao247.com" target="_blank" rel="noopener noreferrer" class="botao botao-secundario">
+              Visitar site ↗
+            </a>
+          </article>
+
+          <article class="card">
+            <h3>Field Device Empire</h3>
+            <p class="card-url">fielddeviceempire.com</p>
+            <p>
+              Plataforma com foco em dispositivos de campo (field devices) utilizados
+              na automação de processos industriais.
+            </p>
+            <a href="https://fielddeviceempire.com" target="_blank" rel="noopener noreferrer" class="botao botao-secundario">
+              Visitar site ↗
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="secao secao-alt">
+      <div class="container">
+        <h2 class="titulo-secao">Contato</h2>
+
+        <div class="grid-contato">
+          <div class="info-contato">
+            <h3>Vamos conversar</h3>
+            <p>Fico à disposição para trocar ideias sobre negócios, parcerias e tecnologia.</p>
+            <ul class="lista">
+              <li>✉️ fabricio.solutions13@gmail.com</li>
+              <li>💼 linkedin.com/in/fabriciodeandrade</li>
+              <li>📍 Basel, Suíça</li>
+            </ul>
+          </div>
+
+          <!-- validação dos campos e o "envio" ficam todos no script.js, aqui é só a estrutura -->
+          <form id="formulario-contato" class="form-contato" novalidate>
+            <div class="campo">
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+              <span class="erro" id="erro-nome"></span>
+            </div>
+
+            <div class="campo">
+              <label for="email">E-mail</label>
+              <input type="text" id="email" name="email" placeholder="usuario@dominio.com">
+              <span class="erro" id="erro-email"></span>
+            </div>
+
+            <div class="campo">
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem"></textarea>
+              <span class="erro" id="erro-mensagem"></span>
+            </div>
+
+            <button type="submit" class="botao botao-principal">Enviar mensagem</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <div class="container rodape-conteudo">
+      <p>&copy; <span id="ano-atual"></span> Fabrício Oliveira de Andrade. Todos os direitos reservados.</p>
+      <a href="#topo" class="voltar-topo">Voltar ao topo ↑</a>
+    </div>
+  </footer>
+
+  <!-- modal que aparece quando o formulário passa na validação. Começa com
+       "hidden" e o script.js tira o hidden quando o form é enviado certo -->
+  <div id="modal-confirmacao" class="modal" hidden>
+    <div class="caixa-modal">
+      <p id="modal-mensagem">Mensagem enviada com sucesso!</p>
+      <button id="modal-fechar" class="botao botao-principal">Fechar</button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

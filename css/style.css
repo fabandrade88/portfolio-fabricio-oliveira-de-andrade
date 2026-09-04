@@ -1,0 +1,555 @@
+/* estilos do meu portfólio - css puro, sem bootstrap nem nada, como pedido na atividade */
+
+/* reset básico, tira as margens/paddings padrão do navegador */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* cores do tema claro (padrão do site) */
+:root {
+  --bg: #f7f7fb;
+  --bg2: #eef0f8;
+  --texto: #222330;
+  --texto2: #555568;
+  --azul: #14213d;
+  --dourado: #e0a458;
+  --borda: #dcdce6;
+  --card-bg: #ffffff;
+}
+
+/* cores do tema escuro. o script.js que adiciona o data-tema="escuro" no html
+   quando o usuário clica no botão da lua, aí essas variáveis entram no lugar
+   das de cima */
+html[data-tema="escuro"] {
+  --bg: #14161f;
+  --bg2: #1b1e2b;
+  --texto: #eceef5;
+  --texto2: #b3b5c6;
+  --azul: #e0a458;
+  --dourado: #e0a458;
+  --borda: #2c2f40;
+  --card-bg: #1c1f2e;
+}
+
+html {
+  scroll-behavior: smooth; /* rolagem suave quando clica nos links do menu, ficou bem melhor que sem isso */
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--texto);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3 {
+  font-family: 'Poppins', Arial, sans-serif;
+  color: var(--azul);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.secao {
+  padding: 80px 0;
+  /* sem isso, o cabeçalho fixo ficava por cima do título quando eu clicava
+     num link do menu (a seção "colava" atrás do menu) */
+  scroll-margin-top: 80px;
+}
+
+.secao-alt {
+  background-color: var(--bg2);
+}
+
+.titulo-secao {
+  font-size: 2rem;
+  margin-bottom: 32px;
+  text-align: center;
+  position: relative;
+}
+
+.titulo-secao::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--dourado);
+  margin: 12px auto 0;
+  border-radius: 4px;
+}
+
+.intro {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  text-align: center;
+  color: var(--texto2);
+}
+
+/* classe genérica de botão, uso ela em vários lugares do site */
+.botao {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.botao:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.botao-principal {
+  background-color: var(--dourado);
+  color: #1a1a1a;
+}
+
+.botao-secundario {
+  background-color: transparent;
+  border: 2px solid var(--azul);
+  color: var(--azul);
+}
+
+html[data-tema="escuro"] .botao-secundario {
+  border-color: var(--dourado);
+  color: var(--dourado);
+}
+
+/* CABEÇALHO */
+.cabecalho {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.cabecalho-conteudo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.logo {
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--azul);
+}
+
+.logo span {
+  color: var(--dourado);
+}
+
+.listaMenu {
+  display: flex;
+  gap: 32px;
+}
+
+.link-menu {
+  font-weight: 500;
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.link-menu:hover,
+.link-menu.ativo {
+  border-color: var(--dourado);
+  color: var(--dourado);
+}
+
+.acoes-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.botao-tema {
+  background: none;
+  border: 2px solid var(--borda);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+/* o botão hambúrguer fica escondido por padrão, só aparece lá embaixo na media query pra mobile */
+.botao-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.botao-menu span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: var(--azul);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* quando o menu abre, o JS adiciona essa classe e as 3 barrinhas viram um X */
+.botao-menu.ativo span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.botao-menu.ativo span:nth-child(2) {
+  opacity: 0;
+}
+.botao-menu.ativo span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* SEÇÃO DE ABERTURA (a primeira coisa que aparece na tela) */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%);
+  padding-top: 70px; /* pra não ficar embaixo do cabeçalho fixo */
+}
+
+.foto-perfil {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 24px;
+  border: 4px solid var(--dourado);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  margin-bottom: 8px;
+}
+
+.cargo {
+  font-size: 1.15rem;
+  color: var(--texto2);
+  margin-bottom: 6px;
+}
+
+.local {
+  color: var(--texto2);
+  margin-bottom: 28px;
+}
+
+/* SOBRE MIM: texto de um lado, caixinha de tags do outro */
+.grid-sobre {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.texto-sobre p {
+  margin-bottom: 16px;
+  color: var(--texto2);
+}
+
+.destaques {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.destaques h3 {
+  margin-bottom: 16px;
+  font-size: 1.05rem;
+}
+
+.lista-tags li {
+  display: inline-block;
+  background-color: var(--bg2);
+  color: var(--texto);
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin: 0 8px 8px 0;
+  font-size: 0.9rem;
+}
+
+/* FORMAÇÃO - reaproveitei a mesma .bloco pra cada bloquinho (formação, cursos, idiomas) */
+.bloco {
+  margin-bottom: 40px;
+}
+
+.bloco h3 {
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+}
+
+.timeline li {
+  display: flex;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--borda);
+}
+
+.timeline li:last-child {
+  border-bottom: none;
+}
+
+.timeline .ano {
+  min-width: 60px;
+  font-weight: 700;
+  color: var(--dourado);
+}
+
+.timeline p {
+  color: var(--texto2);
+}
+
+.lista li {
+  padding: 6px 0;
+  color: var(--texto2);
+}
+
+/* barrinha de nível de idioma, é só uma div com largura em % dentro de outra div */
+.idioma {
+  margin-bottom: 16px;
+}
+
+.idioma-linha {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.barra {
+  width: 100%;
+  height: 10px;
+  background-color: var(--borda);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.preenchido {
+  height: 100%;
+  background-color: var(--dourado);
+  border-radius: 6px;
+}
+
+/* PORTFÓLIO: os cards dos sites. são só 2 cards então deixei fixo em 2 colunas
+   mesmo (lá embaixo, no mobile, viram 1 coluna) */
+.grid-projetos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.card h3 {
+  margin-bottom: 6px;
+}
+
+.card-url {
+  color: var(--dourado);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: var(--texto2);
+  margin-bottom: 20px;
+}
+
+/* CONTATO */
+.grid-contato {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 48px;
+}
+
+.info-contato h3 {
+  margin-bottom: 12px;
+}
+
+.info-contato p {
+  color: var(--texto2);
+  margin-bottom: 20px;
+}
+
+.form-contato {
+  background-color: var(--card-bg);
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.campo {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.campo label {
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.campo input,
+.campo textarea {
+  padding: 12px;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  background-color: var(--bg);
+  color: var(--texto);
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+  outline: 2px solid var(--dourado);
+}
+
+/* essa classe o script.js coloca no input quando o campo não passa na validação */
+.campo input.invalido,
+.campo textarea.invalido {
+  border-color: #d64545;
+}
+
+.erro {
+  color: #d64545;
+  font-size: 0.85rem;
+  min-height: 18px;
+  margin-top: 4px;
+}
+
+/* RODAPÉ */
+.rodape {
+  background-color: var(--azul);
+  color: #f0f0f0;
+  padding: 24px 0;
+}
+
+.rodape-conteudo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.voltar-topo:hover {
+  color: var(--dourado);
+}
+
+/* MODAL que aparece quando o formulário é enviado com sucesso */
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+/* preciso dessa regra pq lá em cima eu defini "display: flex" pro .modal,
+   e isso sobrescreve o hidden do html (descobri isso testando, o modal
+   tava aparecendo na tela mesmo com o atributo hidden) */
+.modal[hidden] {
+  display: none;
+}
+
+.caixa-modal {
+  background-color: var(--card-bg);
+  padding: 32px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 340px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.caixa-modal p {
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* daqui pra baixo é a responsividade, testei no celular e no tablet do navegador */
+@media (max-width: 768px) {
+
+  .botao-menu {
+    display: flex; /* agora sim mostra o hambúrguer */
+  }
+
+  /* nas telas pequenas o menu vira um painel que desliza da direita pra esquerda */
+  .menu {
+    position: fixed;
+    top: 70px;
+    right: 0;
+    width: 240px;
+    height: calc(100vh - 70px);
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .menu.aberto {
+    transform: translateX(0);
+  }
+
+  .listaMenu {
+    flex-direction: column;
+    padding: 24px;
+    gap: 20px;
+  }
+
+  .grid-sobre,
+  .grid-contato,
+  .grid-projetos {
+    grid-template-columns: 1fr;
+  }
+
+  .rodape-conteudo {
+    flex-direction: column;
+    text-align: center;
+  }
+}
